@@ -22,9 +22,16 @@ class _SlideActionState extends State<SlideAction> {
           Draggable(
             child: Container(),
             feedback: feedback,
+            childWhenDragging: Container(decoration: Bo,),
           ),
           DragTarget(
-            builder: builder,
+            builder: (context, a,b){
+              return Container(
+              decoration: const BoxDecoration(
+                
+              ),
+            );
+            },
           )
         ],
       ),

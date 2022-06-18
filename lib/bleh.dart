@@ -1,4 +1,4 @@
-library flutterslidetoact;
+library slide_action;
 
 import 'dart:math';
 
@@ -125,7 +125,7 @@ class SlideActionState extends State<SlideAction>
               : BoxConstraints.expand(height: widget.height),
           child: Material(
             elevation: widget.elevation,
-            color: widget.outerColor ?? Theme.of(context).accentColor,
+            color: widget.outerColor ?? Theme.of(context).colorScheme.secondary,
             borderRadius: BorderRadius.circular(widget.borderRadius),
             child: submitted
                 ? Transform(
