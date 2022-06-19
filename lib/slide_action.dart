@@ -20,9 +20,16 @@ class _SlideActionState extends State<SlideAction> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Draggable(
-            child: Container(),
-            feedback: feedback,
-            childWhenDragging: Container(decoration: Bo,),
+            feedback: const Spacer(),
+            childWhenDragging: Container(decoration: BoxDecoration(
+              
+            ),),
+            child: Container(
+              child: Padding(padding: const EdgeInsets.all(8.0), child: Material(
+                borderRadius: BorderRadius.circular(2.0),
+                color: Colors.black,
+              ),),
+            ),
           ),
           DragTarget(
             builder: (context, a,b){
