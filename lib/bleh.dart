@@ -149,7 +149,7 @@ class SlideActionState extends State<SlideAction>
                               alignment: Alignment.centerRight,
                               child: Container(
                                 color: widget.outerColor ??
-                                    Theme.of(context).accentColor,
+                                    Theme.of(context).colorScheme.secondary,
                               ),
                             ),
                           ),
