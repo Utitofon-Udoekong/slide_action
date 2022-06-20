@@ -19,7 +19,7 @@ class _SlideActionState extends State<SlideAction> {
     var size = MediaQuery.of(context).size;
     var containerPadding = 8.0;
     return Container(
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), border: Border.all(color: const Color.fromARGB(255, 79, 129, 13))),
       height: 100,
       padding: EdgeInsets.all(containerPadding),
       width: size.width,

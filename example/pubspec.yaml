@@ -11,7 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  slide_action: ../
+  slide_action: 
+    path: ../
 
   cupertino_icons: ^1.0.2
 

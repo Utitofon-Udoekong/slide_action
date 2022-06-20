@@ -1,4 +1,4 @@
-library slide_action;
+library slide_actin;
 
 import 'dart:math';
 
@@ -61,6 +61,7 @@ class SlideAction extends StatefulWidget {
 
   /// If true the widget will be reversed
   final bool reversed;
+  final bool loading;
 
   /// the alignment of the widget once it's submitted
   final Alignment alignment;
@@ -85,7 +86,8 @@ class SlideAction extends StatefulWidget {
     this.innerColor,
     this.text,
     this.textStyle,
-    this.sliderButtonIcon,
+    this.sliderButtonIcon, 
+    this.loading = false,
   }) : super(key: key);
   @override
   SlideActionState createState() => SlideActionState();
@@ -135,7 +137,9 @@ class SlideActionState extends State<SlideAction>
                       child: Stack(
                         clipBehavior: Clip.antiAlias,
                         children: <Widget>[
-                          widget.submittedIcon ??
+                          widget.loading ? CircularProgressIndicator.adaptive(
+                            backgroundColor: Theme.of(context).primaryIconTheme.color,
+                          ) : widget.submittedIcon ??
                               Icon(
                                 Icons.done,
                                 color: widget.innerColor ??
@@ -169,7 +173,7 @@ class SlideActionState extends State<SlideAction>
                               Matrix4.rotationY(widget.reversed ? pi : 0),
                           child: widget.child ??
                               Text(
-                                widget.text ?? 'Slide to act',
+                                widget.text ?? 'Slide to continue',
                                 textAlign: TextAlign.center,
                                 style: widget.textStyle ??
                                     TextStyle(
@@ -206,6 +210,8 @@ class SlideActionState extends State<SlideAction>
                                     await _checkAnimation();
 
                                     widget.onSubmit!();
+
+                                    // _cancelAnimation();
                                   }
                                 },
                                 child: Padding(
