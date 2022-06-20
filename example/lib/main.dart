@@ -35,7 +35,9 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       loading = true;
     });
-    Future.delayed(const Duration(seconds: 2), () => loading = false);
+    Future.delayed(const Duration(seconds: 3), () => setState((){
+      loading = false;
+    }));
   }
 
   @override
@@ -51,7 +53,8 @@ class _MyHomePageState extends State<MyHomePage> {
               onSubmit: ()async{
                 setLoading();
               },
-            )
+            ),
+            const SizedBox(height: 40,)
           ],
         ),
       ),
