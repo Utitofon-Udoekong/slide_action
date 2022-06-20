@@ -45,7 +45,7 @@ class SlideAction extends StatefulWidget {
 
   /// Callback called on submit
   /// If this is null the component will not animate to complete
-  final VoidCallback? onSubmit;
+  final Future Function()? onSubmit;
 
   /// Elevation of the component
   final double elevation;
@@ -204,14 +204,11 @@ class SlideActionState extends State<SlideAction>
                                     _cancelAnimation();
                                   } else {
                                     await _resizeAnimation();
-
                                     await _shrinkAnimation();
 
-                                    await _checkAnimation();
+                                    await widget.onSubmit!().then((value) async => await _checkAnimation());
 
-                                    widget.onSubmit!();
-
-                                    // _cancelAnimation();
+                                    await _cancelAnimation();
                                   }
                                 },
                                 child: Padding(
